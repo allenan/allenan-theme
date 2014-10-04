@@ -97,6 +97,23 @@
     };
 })(jQuery, 'smartresize');
 
+function styleCode() {
+    if (typeof disableStyleCode != 'undefined') { return; }
+
+    var a = false;
+
+    $('pre').each(function() {
+      if (!$(this).hasClass('prettyprint')) {
+        $(this).addClass('prettyprint');
+        a = true;
+      }
+    });
+
+    if (a) { prettyPrint(); }
+  }
+  
+  $(function() {styleCode();});
+
  function readTime() {
    var word_minutes = $.map($('.post-content').find('p'), function(el) {
      return $(el).html().split(' ').length;
@@ -116,19 +133,4 @@
 
   $('.read-time .minutes').html(readTime());
 
- function styleCode() {
-    if (typeof disableStyleCode != 'undefined') { return; }
-
-    var a = false;
-
-    $('pre').each(function() {
-      if (!$(this).hasClass('prettyprint')) {
-        $(this).addClass('prettyprint');
-        a = true;
-      }
-    });
-
-    if (a) { prettyPrint(); }
-  }
-  
-  $(function() {styleCode();});
+ 
