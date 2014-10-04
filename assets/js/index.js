@@ -114,6 +114,8 @@ function styleCode() {
   
   $(function() {styleCode();});
 
+
+
  function readTime() {
    var word_minutes = $.map($('.post-content').find('p'), function(el) {
      return $(el).html().split(' ').length;
@@ -131,6 +133,9 @@ function styleCode() {
    return Math.ceil(word_minutes + image_minutes + code_minutes);
  }
 
-  $('.read-time .minutes').html(readTime());
+ var readTime = readTime();
+ var plural = readTime == 1 ? "" : "s";
+
+  $('.read-time .minutes').html(readTime + " Minute" + plural);
 
  
