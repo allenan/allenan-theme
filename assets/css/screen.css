@@ -901,6 +901,11 @@ body:not(.post-template) .post-title {
     display: none;
 }
 
+.read-time {
+  display: inline;
+  float: right;
+  }
+
 /* Keep images centred and within the bounds of the post-width */
 .post-content img {
     display: block;
@@ -1433,10 +1438,6 @@ li.L1,li.L3,li.L5,li.L7,li.L9 { }
         padding: 10% 0;
     }
 
-    .blog-logo img {
-        padding: 4px 0;
-    }
-
     .page-title {
         font-size: 4rem;
         letter-spacing: -1px;
@@ -1553,11 +1554,13 @@ li.L1,li.L3,li.L5,li.L7,li.L9 { }
     }
 
     .blog-logo {
-        padding: 10px 10px;
+        /*padding: 10px 10px;*/
     }
 
     .blog-logo img {
-        height: 26px;
+      width: 80px;
+      height: 80px;
+      border-radius: 80px;
     }
 
     .back-button,
@@ -1715,6 +1718,7 @@ li.L1,li.L3,li.L5,li.L7,li.L9 { }
         font-size: 1.3rem;
         margin-top: 1rem;
     }
+
 
     .post-footer {
         padding: 5rem 0 3rem 0;

@@ -97,6 +97,21 @@
     };
 })(jQuery, 'smartresize');
 
+ function readTime() {
+   var word_minutes = $.map($('.post-content').find('p'), function(el) {
+     return $(el).html().split(' ').length;
+   }).reduce(function(a,b){ return a + b }) / 275;
+
+   var image_minutes = $.map($('.post-content').find('img'), function(el) {
+     return 0.2;
+   }).reduce(function(a,b){ return a + b });
+
+
+   return Math.ceil(word_minutes + image_minutes);
+ }
+
+  $('.read-time .minutes').html(readTime());
+
  function styleCode() {
     if (typeof disableStyleCode != 'undefined') { return; }
 
