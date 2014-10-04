@@ -124,7 +124,7 @@ function styleCode() {
    }).reduce(function(a,b){ return a + b }, 0);
 
    var code_minutes = $.map($('.post-content').find('pre code'), function(el) {
-     return $(el).find('span').length
+     return $(el).html().split(' ').length;
    }).reduce(function(a,b){ return a + b }, 0) / 275;
 
 
