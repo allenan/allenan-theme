@@ -100,14 +100,18 @@
  function readTime() {
    var word_minutes = $.map($('.post-content').find('p'), function(el) {
      return $(el).html().split(' ').length;
-   }).reduce(function(a,b){ return a + b }) / 275;
+   }).reduce(function(a,b){ return a + b }, 0) / 275;
 
    var image_minutes = $.map($('.post-content').find('img'), function(el) {
      return 0.2;
-   }).reduce(function(a,b){ return a + b });
+   }).reduce(function(a,b){ return a + b }, 0);
+
+   var code_minutes = $.map($('.post-content').find('pre code'), function(el) {
+     return $(el).find('span').length
+   }).reduce(function(a,b){ return a + b }, 0) / 275;
 
 
-   return Math.ceil(word_minutes + image_minutes);
+   return Math.ceil(word_minutes + image_minutes + code_minutes);
  }
 
   $('.read-time .minutes').html(readTime());
