@@ -928,6 +928,10 @@ body:not(.post-template) .post-title {
   text-align: center;
 }
 
+.follow {
+  text-align: center;
+}
+
 /* The author credit area after the post */
 .post-footer {
     position: relative;
@@ -988,6 +992,10 @@ body:not(.post-template) .post-title {
     top: 6rem;
     right: 0;
     width: 140px;
+}
+
+.post-footer .share h4 {
+  font-size: 1.5rem;
 }
 
 .post-footer .share a {
