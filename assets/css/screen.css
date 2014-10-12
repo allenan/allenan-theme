@@ -924,6 +924,10 @@ body:not(.post-template) .post-title {
     margin: 0 -13%;
 }
 
+.follow {
+  text-align: center;
+}
+
 /* The author credit area after the post */
 .post-footer {
     position: relative;
