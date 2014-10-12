@@ -98,44 +98,84 @@
 })(jQuery, 'smartresize');
 
 function styleCode() {
-    if (typeof disableStyleCode != 'undefined') { return; }
+  if (typeof disableStyleCode != 'undefined') { return; }
 
-    var a = false;
+  var a = false;
 
-    $('pre').each(function() {
-      if (!$(this).hasClass('prettyprint')) {
-        $(this).addClass('prettyprint');
-        a = true;
-      }
-    });
+  $('pre').each(function() {
+    if (!$(this).hasClass('prettyprint')) {
+      $(this).addClass('prettyprint');
+      a = true;
+    }
+  });
 
-    if (a) { prettyPrint(); }
-  }
-  
-  $(function() {styleCode();});
+  if (a) { prettyPrint(); }
+}
 
-
-
- function readTime() {
-   var word_minutes = $.map($('.post-content').find('p'), function(el) {
-     return $(el).html().split(' ').length;
-   }).reduce(function(a,b){ return a + b }, 0) / 275;
-
-   var image_minutes = $.map($('.post-content').find('img'), function(el) {
-     return 0.2;
-   }).reduce(function(a,b){ return a + b }, 0);
-
-   var code_minutes = $.map($('.post-content').find('pre code'), function(el) {
-     return $(el).html().split(' ').length;
-   }).reduce(function(a,b){ return a + b }, 0) / 275;
+$(function() {styleCode();});
 
 
-   return Math.ceil(word_minutes + image_minutes + code_minutes);
- }
 
- var readTime = readTime();
- var plural = readTime == 1 ? "" : "s";
+function readTime() {
+  var word_minutes = $.map($('.post-content').find('p'), function(el) {
+    return $(el).html().split(' ').length;
+  }).reduce(function(a,b){ return a + b }, 0) / 275;
 
-  $('.read-time .minutes').html(readTime + " Minute" + plural);
+  var image_minutes = $.map($('.post-content').find('img'), function(el) {
+    return 0.2;
+  }).reduce(function(a,b){ return a + b }, 0);
 
- 
+  var code_minutes = $.map($('.post-content').find('pre code'), function(el) {
+    return $(el).html().split(' ').length;
+  }).reduce(function(a,b){ return a + b }, 0) / 275;
+
+
+  return Math.ceil(word_minutes + image_minutes + code_minutes);
+}
+
+var readTime = readTime();
+var plural = readTime == 1 ? "" : "s";
+
+$('.read-time .minutes').html(readTime + " Minute" + plural);
+
+$('section.follow a').click(function() {
+  analytics.track('Twitter Follow', {
+    location: 'Article CTA'
+  });
+});
+
+$('section.follow a').click(function() {
+  analytics.track('Twitter Follow', {
+    location: 'Article CTA'
+  });
+});
+
+$('.main-nav .subscribe-button').click(function() {
+  analytics.track('Twitter Follow', {
+    location: 'Header'
+  });
+});
+
+$('.author .icon-twitter a').click(function() {
+  analytics.track('Twitter Follow', {
+    location: 'Author'
+  });
+});
+
+$('.share .icon-twitter').click(function() {
+  analytics.track('Share Article', {
+    via: 'Twitter'
+  });
+});
+
+$('.share .icon-facebook').click(function() {
+  analytics.track('Share Article', {
+    via: 'Facebook'
+  });
+});
+
+$('.share .icon-google-plus').click(function() {
+  analytics.track('Share Article', {
+    via: 'Google Plus'
+  });
+});
