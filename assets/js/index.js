@@ -138,9 +138,45 @@ var plural = readTime == 1 ? "" : "s";
 
 $('.read-time .minutes').html(readTime + " Minute" + plural);
 
-$('section.follow a').click(function() {
+function randomFrom(array) {
+  return array[Math.floor(Math.random() * array.length)];
+}
+
+function pickFollowCta() {
+  var ctas = [
+    {
+      id: 1,
+      html: "<p><strong>PS:</strong> Let's be friends &ndash; <a href='http://twitter.com/allenan_'>follow me on Twitter!</a></p>"
+    },
+    {
+      id: 2,
+      html: "<p><strong>PS:</strong> If you found this helpful, <a href='http://twitter.com/allenan_'>you should follow me on Twitter</a> for more content like this.</p>"
+    },
+    {
+      id: 3,
+      html: "<p><strong>PS:</strong> If you found this helpful, you should follow me on Twitter <a href='http://twitter.com/allenan_'>here</a> for more content like this.</p>"
+    },
+    {
+      id: 4,
+      html: "<p><strong>PS:</strong> You should follow me on Twitter <a href='http://twitter.com/allenan_'>here</a> for more content like this.</p>"
+    },
+    {
+      id: 5,
+      html: "<p><strong>PS:</strong> You should follow me on Twitter <a href='http://twitter.com/allenan_'>here</a>.</p>"
+    }
+  ];
+
+  return randomFrom(ctas);
+}
+
+var followCta = pickFollowCta();
+
+$('.follow-cta').html(followCta.html).data('cta', followCta.id);
+
+$('section.follow-cta a').click(function() {
   analytics.track('Twitter Follow', {
-    location: 'Article CTA'
+    location: 'Article CTA',
+    variant: $('.follow-cta').data('cta')
   });
 });
 
