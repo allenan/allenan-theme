@@ -1122,6 +1122,7 @@ pre.prettyprint {
         padding: 1em !important;
         white-space: pre-wrap;
         line-height: 1.4em;
+        margin-bottom: 1.75em;
 }
 
 /* Specify class=linenums on a pre to get line numbering */
